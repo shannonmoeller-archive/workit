@@ -26,5 +26,5 @@ module.exports = (dir) ->
         throw err if err
         res.setHeader 'Content-Type', 'text/css'
         res.end css
-    catch e
-      next(e)
+    catch err
+      next(err)

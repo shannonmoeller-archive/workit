@@ -9,6 +9,9 @@ clean:
 distclean:
 	$(RM) -r node_modules
 
+test: node_modules
+	./node_modules/.bin/supervisor -- bin/workit test
+
 watch: node_modules
 	./node_modules/.bin/coffee -o lib -cw src
 

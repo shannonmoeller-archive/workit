@@ -1,8 +1,8 @@
 {
 	"name": "workit",
-	"version": "0.1.3",
-	"description": "Quick and dirty development server built with Connect. Serves CoffeeScript, Jade, and Stylus like a champ.",
-	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "static", "stylus"],
+	"version": "0.1.4",
+	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads on file change.",
+	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "socket.io", "static", "stylus"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
 	"main": "lib/workit.js",
 	"bin": "./bin/workit",
@@ -14,7 +14,12 @@
 		"coffee-script": "*",
 		"commander": "*",
 		"connect": "*",
+		"hound": "*",
 		"jade": "*",
+		"socket.io": "*",
 		"stylus": "*"
+	},
+	"devDependencies": {
+		"supervisor": "*"
 	}
 }
