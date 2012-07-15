@@ -8,7 +8,7 @@ jade = require './connect-jade'
 stylus = require './connect-stylus'
 
 # Export helpfulness
-module.exports = ({dir, format, address, port}) ->
+module.exports = ({address, dir, format, port}) ->
   connect()
     .use(connect.logger format)
     .use(coffee dir)
