@@ -1,7 +1,7 @@
 workit
 ======
 
-Quick and dirty development server built with connect. Serves coffee-script, jade, and stylus like a champ. Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodejitsu/http-server).
+Quick and dirty development server built with connect. Serves coffee-script, jade, and stylus like a champ. Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
 
 Installation
 ------------
