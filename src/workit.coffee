@@ -10,6 +10,7 @@ stylus = require './connect-stylus'
 # Export helpfulness
 module.exports = ({address, dir, format, port}) ->
   connect()
+    .use(connect.favicon())
     .use(connect.logger format)
     .use(coffee dir)
     .use(jade dir)
