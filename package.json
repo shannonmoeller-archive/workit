@@ -1,0 +1,20 @@
+{
+	"name": "workit",
+	"version": "0.1.0",
+	"description": "Quick and dirty development server built with connect. Serves coffee-script, jade, and stylus like a champ.",
+	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "static", "stylus"],
+	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
+	"main": "lib/workit.js",
+	"bin": "./bin/workit",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/shannonmoeller/workit.git"
+	},
+	"dependencies": {
+		"coffee-script": "*",
+		"commander": "*",
+		"connect": "*",
+		"jade": "*",
+		"stylus": "*"
+	}
+}
