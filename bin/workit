@@ -5,7 +5,7 @@ var commander = require('commander'),
 
 // Setup command arguments
 commander
-  .version('0.1.0')
+  .version('0.1.2')
   .usage('[options] [dir]')
   .option('-a, --address <string>', 'set hostname [127.0.0.1]', '127.0.0.1')
   .option('-f, --format <string>', 'set log format [dev]', 'dev')

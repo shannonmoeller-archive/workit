@@ -1,6 +1,6 @@
 {
 	"name": "workit",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Quick and dirty development server built with Connect. Serves CoffeeScript, Jade, and Stylus like a champ.",
 	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "static", "stylus"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
