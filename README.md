@@ -1,7 +1,7 @@
 workit
 ======
 
-Quick and dirty development server built with [Connect](http://www.senchalabs.org/connect/). Serves [coffee-script](http://coffeescript.org), [jade](http://jade-lang.com), and [stylus](http://learnboost.github.com/stylus/) like a champ. Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
+Quick and dirty development server built with [Connect](http://www.senchalabs.org/connect/). Serves [CoffeeScript](http://coffeescript.org), [Jade](http://jade-lang.com), and [Stylus](http://learnboost.github.com/stylus/) like a champ. Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
 
 Installation
 ------------
