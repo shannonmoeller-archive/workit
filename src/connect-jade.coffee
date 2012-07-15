@@ -26,6 +26,7 @@ module.exports = (dir) ->
     try
       content = fs.readFileSync filename, 'utf8'
       fn = jade.compile content, {filename}
+      res.setHeader 'Content-Type', 'text/html'
       res.end fn()
     catch e
       next(e)

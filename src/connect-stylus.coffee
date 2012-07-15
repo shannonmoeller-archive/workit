@@ -24,6 +24,7 @@ module.exports = (dir) ->
       content = fs.readFileSync filename, 'utf8'
       stylus.render content, {filename}, (err, css) ->
         throw err if err
+        res.setHeader 'Content-Type', 'text/css'
         res.end css
     catch e
       next(e)

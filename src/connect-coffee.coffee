@@ -22,6 +22,7 @@ module.exports = (dir) ->
     # Parse and return
     try
       content = fs.readFileSync filename, 'utf8'
+      res.setHeader 'Content-Type', 'text/javascript'
       res.end coffee.compile content, {filename}
     catch e
       next(e)
