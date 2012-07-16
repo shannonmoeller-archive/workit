@@ -1,7 +1,7 @@
 {
 	"name": "workit",
 	"version": "0.1.5",
-	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads on file change.",
+	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change.",
 	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "socket.io", "static", "stylus"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
 	"main": "lib/workit.js",

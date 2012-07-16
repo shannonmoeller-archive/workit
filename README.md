@@ -1,7 +1,7 @@
 workit
 ======
 
-The stupid development server. Serves [CoffeeScript](http://coffeescript.org), [Jade](http://jade-lang.com), and [Stylus](http://learnboost.github.com/stylus/) like a champ. Reloads on file change. Built with [Connect](http://www.senchalabs.org/connect/) and [Socket.io](http://socket.io). Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
+The stupid development server. Serves [CoffeeScript](http://coffeescript.org), [Jade](http://jade-lang.com), and [Stylus](http://learnboost.github.com/stylus/) like a champ. Reloads browser on source-file change. Built with [Connect](http://www.senchalabs.org/connect/) and [Socket.io](http://socket.io). Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
 
 Installation
 ------------
@@ -13,15 +13,15 @@ Usage
 
 ```
 
-  Usage: workit [options] [dir]
+    Usage: workit [options] [dir]
 
-  Options:
+    Options:
 
-    -h, --help              output usage information
-    -V, --version           output the version number
-    -a, --address <string>  set hostname [127.0.0.1]
-    -f, --format <string>   set log format [dev]
-    -p, --port <number>     set port nubmer [3000]
+      -h, --help              output usage information
+      -V, --version           output the version number
+      -a, --address <string>  set hostname [127.0.0.1]
+      -f, --format <string>   connect logger format [dev]
+      -p, --port <number>     set port nubmer [3000]
 
 ```
 
