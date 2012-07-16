@@ -1,4 +1,4 @@
-.PHONY: all clean distclean watch
+.PHONY: all clean distclean test watch
 
 all: node_modules
 	./node_modules/.bin/coffee -o lib -c src

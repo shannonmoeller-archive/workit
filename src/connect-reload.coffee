@@ -10,21 +10,27 @@ module.exports = ({dir, server}) ->
 
   # Reload handler
   reload = ->
-    io.sockets.emit 'workit-reload'
+    io.sockets.emit 'connect-reload'
 
   # Bind reload handler
   dog.on 'create', reload
   dog.on 'change', reload
-  dog.on 'delete', reload
 
   # Return handler
   ({url}, res, next) ->
     # Handle reloads
-    return next() unless url is '/workit.js'
+    return next() unless url is '/connect-reload.js'
 
     # RAM for the win
     res.setHeader 'Content-Type', 'text/javascript'
     res.end "
-      io.connect('/').on('workit-reload', function () {
-        document.location.reload(true);
-      });"
+      (function(){
+        var script = document.createElement('script');
+        script.src = '/socket.io/socket.io.js';
+        script.onload = function () {
+          io.connect('/').on('connect-reload', function () {
+            document.location.reload(true);
+          });
+        };
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }());"
