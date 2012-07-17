@@ -43,11 +43,13 @@ Usage
 ### Auto-reload
 
 ```
-    HTML:
-	<script src="/connect-reload.js"></script>
 
-	Jade:
-	script(src='/connect-reload.js')
+    HTML:
+    <script src="/connect-reload.js"></script>
+
+    Jade:
+    script(src='/connect-reload.js')
+
 ```
 
 License
