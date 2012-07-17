@@ -1,7 +1,20 @@
 workit
 ======
 
-The stupid development server. Serves [CoffeeScript](http://coffeescript.org), [Jade](http://jade-lang.com), and [Stylus](http://learnboost.github.com/stylus/) like a champ. Reloads browser on source-file change. Built with [Connect](http://www.senchalabs.org/connect/) and [Socket.io](http://socket.io). Inspired by visionmedia's [serve](https://github.com/visionmedia/serve) and nodejitsu's [http-server](https://github.com/nodeapps/http-server).
+The stupid development server. Serves [CoffeeScript][coff], [Jade][jade], and
+[Stylus][styl] like a champ. Reloads browser on source-file change. Built with
+[Connect][conn], [Socket.io][sock], [Commander.js][comm], and [hound][houn].
+Inspired by visionmedia's [serve][serv] and nodejitsu's [http-server][hser].
+
+[coff]: http://coffeescript.org/
+[jade]: http://jade-lang.com/
+[styl]: http://learnboost.github.com/stylus/
+[conn]: http://senchalabs.org/connect/
+[sock]: http://socket.io/
+[comm]: http://visionmedia.github.com/commander.js/
+[houn]: https://github.com/beefsack/node-hound/
+[serv]: https://github.com/visionmedia/serve/
+[hser]: https://github.com/nodeapps/http-server/
 
 Installation
 ------------
@@ -10,6 +23,8 @@ Installation
 
 Usage
 -----
+
+### Command
 
 ```
 
@@ -23,6 +38,16 @@ Usage
       -f, --format <string>   connect logger format [dev]
       -p, --port <number>     set port nubmer [3000]
 
+```
+
+### Auto-reload
+
+```
+    HTML:
+	<script src="/connect-reload.js"></script>
+
+	Jade:
+	script(src='/connect-reload.js')
 ```
 
 License
