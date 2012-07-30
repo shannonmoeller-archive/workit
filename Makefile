@@ -9,7 +9,7 @@ clean:
 distclean:
 	$(RM) -r node_modules
 
-test: node_modules
+test: all
 	./node_modules/.bin/supervisor -- bin/workit test
 
 watch: node_modules

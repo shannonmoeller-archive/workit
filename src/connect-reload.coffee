@@ -5,8 +5,7 @@ socketio = require 'socket.io'
 util = require 'util'
 
 # Prozac
-debounce = (fn) ->
-  timeout = null
+debounce = (fn, timeout) ->
   return ->
     clearTimeout timeout
     timeout = setTimeout fn, 20
@@ -14,9 +13,7 @@ debounce = (fn) ->
 # Client
 client = "
   (function () {
-    'use strict';
-
-    var server = '//%s:%s/';
+    var script, target, server = '//%s:%s/';
 
     function listen() {
       io.connect(server).on('connect-reload', function () {
@@ -24,22 +21,16 @@ client = "
       });
     }
 
-    function load() {
-      var target = document.getElementsByTagName('script')[0],
-        script = document.createElement('script');
-
-      script.src = server + 'socket.io/socket.io.js';
-      script.onload = listen;
-
-      target.parentNode.insertBefore(script, target.nextSibling);
-    }
-
     if (typeof io === 'object' && io) {
-      listen();
+      return listen();
     }
-    else {
-      load();
-    }
+
+    script = document.createElement('script');
+    script.src = server + 'socket.io/socket.io.js';
+    script.onload = listen;
+
+    target = document.getElementsByTagName('script')[0];
+    target.parentNode.insertBefore(script, target.nextSibling);
   }());"
 
 # Export middleware

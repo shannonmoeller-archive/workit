@@ -1,10 +1,10 @@
 # Modules
-coffee = require 'coffee-script'
 helper = require './helper'
+Snockets = require 'snockets'
 
 # Compiler
 compile = (filename, data, cb) ->
-  cb null, coffee.compile(data, {filename})
+  new Snockets().getConcatenation filename, cb
 
 # Export middleware
 module.exports = (dir) ->
