@@ -4,7 +4,7 @@ helper = require './helper'
 
 # Compiler
 compile = (filename, data, cb) ->
-  cb null, coffee.compile data, {filename}
+  cb null, coffee.compile(data, {filename})
 
 # Export middleware
 module.exports = (dir) ->
