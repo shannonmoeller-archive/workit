@@ -8,20 +8,9 @@ The stupid development server.
 - Compiled output sent directly to browser for a pristine working directory.
 - No caching so you're guaranteed to get the latest changes.
 
-[coff]: http://coffeescript.org/
-[jade]: http://jade-lang.com/
-[styl]: http://learnboost.github.com/stylus/
-
 Built with [Connect][conn], [Socket.io][sock], [Commander.js][comm], and
 [hound][houn]. Inspired by visionmedia's [serve][serv] and nodejitsu's
 [http-server][hser].
-
-[conn]: http://senchalabs.org/connect/
-[sock]: http://socket.io/
-[comm]: http://visionmedia.github.com/commander.js/
-[houn]: https://github.com/beefsack/node-hound/
-[serv]: https://github.com/visionmedia/serve/
-[hser]: https://github.com/nodeapps/http-server/
 
 Installation
 ------------
@@ -32,8 +21,6 @@ Via [npm](http://npmjs.org/):
 
 Usage
 -----
-
-### workit(1)
 
 ```
 
@@ -72,7 +59,12 @@ Features
 
 ### Preprocessing
 
-File extensions are taken literally. If you request jade, you'll get jade:
+`workit` transparently compiles `.coffee`, `.jade`, and `.styl` files and sends
+the output directly to the browser. No rendered files are written to disk, so
+your working directory is left in a pristine state (I'm looking at you
+[connect-assets][coas]).
+
+File extensions are taken literally. If you request `.jade`, you'll get Jade:
 
 ```
 
@@ -137,3 +129,14 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+[coas]: https://github.com/TrevorBurnham/connect-assets
+[coff]: http://coffeescript.org/
+[comm]: http://visionmedia.github.com/commander.js/
+[conn]: http://senchalabs.org/connect/
+[houn]: https://github.com/beefsack/node-hound/
+[hser]: https://github.com/nodeapps/http-server/
+[jade]: http://jade-lang.com/
+[serv]: https://github.com/visionmedia/serve/
+[sock]: http://socket.io/
+[styl]: http://learnboost.github.com/stylus/
