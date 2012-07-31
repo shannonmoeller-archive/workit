@@ -1,14 +1,21 @@
 workit
 ======
 
-The stupid development server. Serves [CoffeeScript][coff], [Jade][jade], and
-[Stylus][styl] like a champ. Reloads browser on source-file change. Built with
-[Connect][conn], [Socket.io][sock], [Commander.js][comm], and [hound][houn].
-Inspired by visionmedia's [serve][serv] and nodejitsu's [http-server][hser].
+The stupid development server.
+
+- Reloads browser on source-file change.
+- Serves [CoffeeScript][coff], [Jade][jade], and [Stylus][styl] like a champ.
+- Compiled output sent directly to browser for a pristine working directory.
+- No caching so you're guaranteed to get the latest changes.
 
 [coff]: http://coffeescript.org/
 [jade]: http://jade-lang.com/
 [styl]: http://learnboost.github.com/stylus/
+
+Built with [Connect][conn], [Socket.io][sock], [Commander.js][comm], and
+[hound][houn]. Inspired by visionmedia's [serve][serv] and nodejitsu's
+[http-server][hser].
+
 [conn]: http://senchalabs.org/connect/
 [sock]: http://socket.io/
 [comm]: http://visionmedia.github.com/commander.js/
@@ -19,12 +26,14 @@ Inspired by visionmedia's [serve][serv] and nodejitsu's [http-server][hser].
 Installation
 ------------
 
+Via [npm](http://npmjs.org/):
+
     $ npm install -g workit
 
 Usage
 -----
 
-### Command
+### workit(1)
 
 ```
 
@@ -36,18 +45,69 @@ Usage
       -V, --version           output the version number
       -a, --address <string>  set hostname [127.0.0.1]
       -f, --format <string>   connect logger format [dev]
-      -p, --port <number>     set port nubmer [3000]
+      -p, --port <number>     set port number [3000]
+
+    Examples:
+
+      Serve the current directory
+
+        $ cd /var/www
+        $ workit
+        Serving /var/www at http://localhost:3000/
+
+      Serve a specific directory
+
+        $ workit /var/www/foo
+        Serving /var/www/foo at http://localhost:3000/
+
+      Serve a specific directory with options
+
+        $ workit -a 192.168.0.1 -p 8080 /var/www/foo
+        Serving /var/www/foo at http://192.168.0.1:8080/
 
 ```
+
+Features
+--------
+
+### Preprocessing
+
+File extensions are taken literally. If you request jade, you'll get jade:
+
+```
+
+    $ curl http://localhost:3000/foo.jade
+    !!! 5
+    title Hello world
+    link(rel='stylesheet', href='foo.css')
+    script(src='/connect-reload.js')
+    script(src='foo.js')
+
+```
+
+If you want the slightly-more-useful compiled html, request `.htm` or `.html`
+instead:
+
+```
+
+    $ curl http://localhost:3000/foo.html
+    <!DOCTYPE html><title>Hello world</title><link rel="stylesheet" href="foo.css"><script src="/connect-reload.js"></script><script src="foo.js"></script>
+
+```
+
+Same goes for `.coffee` vs `.js` and `.styl` vs `.css`.
 
 ### Auto-reload
 
+To enable automatic reloading of a page when a file in your project is created
+or changed, simply include the virtual `/connect-reload.js` in your markup:
+
 ```
 
-    HTML:
+    <!-- HTML -->
     <script src="/connect-reload.js"></script>
 
-    Jade:
+    // Jade
     script(src='/connect-reload.js')
 
 ```

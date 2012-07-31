@@ -11,27 +11,27 @@ debounce = (fn, timeout) ->
     timeout = setTimeout fn, 20
 
 # Client
-client = "
-  (function () {
-    var script, target, server = '//%s:%s/';
+client = ->
+  # Honor address and port values
+  server = '//%s:%s/'
 
-    function listen() {
-      io.connect(server).on('connect-reload', function () {
-        document.location.reload(true);
-      });
-    }
+  # Reload handler
+  reload = ->
+    io.connect(server).on 'connect-reload', ->
+      document.location.reload true
 
-    if (typeof io === 'object' && io) {
-      return listen();
-    }
+  # Are we done yet?
+  return reload() if io?
 
-    script = document.createElement('script');
-    script.src = server + 'socket.io/socket.io.js';
-    script.onload = listen;
+  # Lazy load socket.io
+  script = document.createElement('script')
+  script.src = server + 'socket.io/socket.io.js'
+  script.onload = reload
+  target = document.getElementsByTagName('script')[0]
+  target.parentNode.insertBefore script, target.nextSibling
 
-    target = document.getElementsByTagName('script')[0];
-    target.parentNode.insertBefore(script, target.nextSibling);
-  }());"
+# Browserify
+client = "(#{client}());"
 
 # Export middleware
 module.exports = ({address, dir, port, server}) ->
@@ -39,12 +39,13 @@ module.exports = ({address, dir, port, server}) ->
   dog = hound.watch dir
   io = socketio.listen server, 'log level': 0
 
-  # Be reasonable
+  # Reasonable emitter
   emit = debounce ->
     io.sockets.emit 'connect-reload'
 
-  # Handler
+  # Reload emitter
   reload = (file) ->
+    # Ignore hidden files
     emit() if path.basename(file).indexOf '.'
 
   # Bind handler

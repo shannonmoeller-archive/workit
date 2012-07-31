@@ -1,14 +1,18 @@
 {
 	"name": "workit",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change.",
-	"keywords": ["coffee-script", "connect", "jade", "serve", "server", "socket.io", "static", "stylus"],
+	"keywords": ["assets", "serve", "static", "watch"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
 	"main": "lib/workit.js",
 	"bin": "./bin/workit",
 	"repository": {
 		"type": "git",
 		"url": "http://github.com/shannonmoeller/workit.git"
+	},
+	"scripts": {
+		"test": "make test",
+		"watch": "make watch"
 	},
 	"dependencies": {
 		"coffee-script": "*",

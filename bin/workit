@@ -1,19 +1,2 @@
 #!/usr/bin/env node
-
-var commander = require('commander'),
-	path = require('path');
-
-// Setup command arguments
-commander
-  .version('0.1.6')
-  .usage('[options] [dir]')
-  .option('-a, --address <string>', 'set hostname [localhost]')
-  .option('-f, --format <string>', 'connect logger format [dev]', 'dev')
-  .option('-p, --port <number>', 'set port nubmer [3000]', 3000)
-  .parse(process.argv);
-
-// Normalize path to serve
-commander.dir = path.join(process.cwd(), commander.args.shift());
-
-// Workit
-require('../lib/workit')(commander);
+require('../lib/workit-cli');
