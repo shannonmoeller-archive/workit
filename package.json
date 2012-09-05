@@ -1,6 +1,6 @@
 {
 	"name": "workit",
-	"version": "0.1.8",
+	"version": "0.2.0",
 	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change.",
 	"keywords": ["assets", "serve", "static", "watch"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",

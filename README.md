@@ -6,11 +6,11 @@ The stupid development server.
 - Reloads browser on source-file change.
 - Serves [CoffeeScript][coff], [Jade][jade], and [Stylus][styl] like a champ.
 - Compiled output sent directly to browser for a pristine working directory.
-- No caching so you're guaranteed to get the latest changes.
+- No preprocessor caching so you're guaranteed to load the freshest code.
 
-Built with [Connect][conn], [Socket.io][sock], [Commander.js][comm], and
-[hound][houn]. Inspired by visionmedia's [serve][serv] and nodejitsu's
-[http-server][hser].
+Built with [Node.js][node] using [Connect][conn], [Socket.io][sock],
+[Commander.js][comm], and [hound][houn]. Inspired by visionmedia's [serve][serv]
+and nodejitsu's [http-server][hser].
 
 Installation
 ------------
@@ -72,18 +72,18 @@ File extensions are taken literally. If you request `.jade`, you'll get Jade:
     !!! 5
     title Hello world
     link(rel='stylesheet', href='foo.css')
-    script(src='/connect-reload.js')
+    script(src='connect-reload.js')
     script(src='foo.js')
 
 ```
 
-If you want the slightly-more-useful compiled html, request `.htm` or `.html`
+If you want the slightly-more-useful compiled HTML, request `.htm` or `.html`
 instead:
 
 ```
 
     $ curl http://localhost:3000/foo.html
-    <!DOCTYPE html><title>Hello world</title><link rel="stylesheet" href="foo.css"><script src="/connect-reload.js"></script><script src="foo.js"></script>
+    <!DOCTYPE html><title>Hello world</title><link rel="stylesheet" href="foo.css"><script src="connect-reload.js"></script><script src="foo.js"></script>
 
 ```
 
@@ -92,17 +92,45 @@ Same goes for `.coffee` vs `.js` and `.styl` vs `.css`.
 ### Auto-reload
 
 To enable automatic reloading of a page when a file in your project is created
-or changed, simply include the virtual `/connect-reload.js` in your markup:
+or changed, simply include the virtual `connect-reload.js` in your markup:
 
 ```
 
     <!-- HTML -->
-    <script src="/connect-reload.js"></script>
+    <script src="connect-reload.js"></script>
 
     // Jade
-    script(src='/connect-reload.js')
+    script(src='connect-reload.js')
 
 ```
+
+The filename is magic, so the path doesn't matter:
+
+```
+
+	// Also works!
+	script(src='../my/public/assets/dir/connect-reload.js')
+
+```
+
+### Nib
+
+[Nib][nib] is made available to Stylus files. Just import it:
+
+```
+
+	@import 'nib'
+
+	*
+		// Nib will add vendor prefixed variants
+		box-sizing: border-box
+
+```
+
+### Data URI Image Inlining
+
+Inlining of images via `url()` is not enabled (this is a dev server after all),
+but you may install [`node-canvas`][ncan] to get IE-friendly inlined gradients.
 
 License
 -------
@@ -130,13 +158,16 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-[coas]: https://github.com/TrevorBurnham/connect-assets
+[coas]: https://github.com/TrevorBurnham/connect-assets/
 [coff]: http://coffeescript.org/
 [comm]: http://visionmedia.github.com/commander.js/
 [conn]: http://senchalabs.org/connect/
 [houn]: https://github.com/beefsack/node-hound/
 [hser]: https://github.com/nodeapps/http-server/
 [jade]: http://jade-lang.com/
+[ncan]: https://github.com/LearnBoost/node-canvas/
+[nib]:  http://visionmedia.github.com/nib/
+[node]: http://nodejs.org/
 [serv]: https://github.com/visionmedia/serve/
 [sock]: http://socket.io/
 [styl]: http://learnboost.github.com/stylus/
