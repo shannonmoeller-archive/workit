@@ -35,7 +35,7 @@ commander.on '--help', ->
 commander.parse process.argv
 
 # Normalize
-commander.dir = path.join process.cwd(), commander.args.shift()
+commander.dir = path.resolve commander.args.shift()
 
 # Workit
 require('../lib/workit') commander

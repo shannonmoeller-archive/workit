@@ -1,10 +1,14 @@
 # Modules
 helper = require './helper'
+nib = require 'nib'
 stylus = require 'stylus'
 
 # Compiler
 compile = (filename, data, cb) ->
-  stylus.render data, {filename}, cb
+  stylus(data)
+    .set('filename', filename)
+    .use(nib())
+    .render(cb)
 
 # Export middleware
 module.exports = (dir) ->

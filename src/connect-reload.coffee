@@ -51,11 +51,12 @@ module.exports = ({address, dir, port, server}) ->
   # Bind handler
   dog.on 'create', reload
   dog.on 'change', reload
+  dog.on 'error', ->
 
   # Return middleware
   ({url}, res, next) ->
     # Handle reloads
-    return next() unless url is '/connect-reload.js'
+    return next() unless url.slice(-17) is 'connect-reload.js'
 
     # RAM for the win
     res.setHeader 'Content-Type', 'text/javascript'

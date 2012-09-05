@@ -4,7 +4,7 @@ jade = require 'jade'
 
 # Compiler
 compile = (filename, data, cb) ->
-  cb null, jade.compile(data, {filename})()
+  cb null, jade.compile(data, filename: filename, pretty: true)()
 
 # Export middleware
 module.exports = (dir) ->

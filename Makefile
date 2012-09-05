@@ -1,4 +1,4 @@
-.PHONY: all clean distclean test watch
+# Phony
 
 all: node_modules
 	./node_modules/.bin/coffee -o lib -c src
@@ -14,6 +14,10 @@ test: all
 
 watch: node_modules
 	./node_modules/.bin/coffee -o lib -cw src
+
+.PHONY: all clean distclean test watch
+
+# Actual
 
 node_modules:
 	npm install

@@ -20,6 +20,7 @@
 		"connect": "*",
 		"hound": "*",
 		"jade": "*",
+		"nib": "*",
 		"snockets": "*",
 		"socket.io": "*",
 		"stylus": "*"
