@@ -83,7 +83,11 @@ instead:
 ```
 
     $ curl http://localhost:3000/foo.html
-    <!DOCTYPE html><title>Hello world</title><link rel="stylesheet" href="foo.css"><script src="connect-reload.js"></script><script src="foo.js"></script>
+    <!DOCTYPE html>
+    <title>Hello world</title>
+    <link rel="stylesheet" href="foo.css">
+    <script src="connect-reload.js"></script>
+    <script src="foo.js"></script>
 
 ```
 
@@ -130,7 +134,7 @@ The filename is magic, so the path doesn't matter:
 ### Data URI Image Inlining
 
 Inlining of images via `url()` is not enabled (this is a dev server after all),
-but you may install [`node-canvas`][ncan] to get IE-friendly inlined gradients.
+but you may install [node-canvas][ncan] to get IE-friendly inlined gradients.
 
 License
 -------
