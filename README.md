@@ -9,7 +9,7 @@ The stupid development server.
 - No preprocessor caching so you're guaranteed to load the freshest code.
 
 Built with [Node.js][node] using [Connect][conn], [Socket.io][sock],
-[Commander.js][comm], and [hound][houn]. Inspired by visionmedia's [serve][serv]
+[Commander.js][comm], and [watchr][wchr]. Inspired by visionmedia's [serve][serv]
 and nodejitsu's [http-server][hser].
 
 Installation
@@ -132,6 +132,14 @@ The filename is magic, so the path doesn't matter:
 Inlining of images via `url()` is not enabled (this is a dev server after all),
 but you may install [`node-canvas`][ncan] to get IE-friendly inlined gradients.
 
+Change Log
+----------
+
+### 0.2.1
+
+- Now using `watchr` instead of `hound`. Common system and hidden files are now ignored. Fixes #5.
+- Now using `forever` instead of `supervisor` in `make test`.
+
 License
 -------
 
@@ -162,7 +170,6 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [coff]: http://coffeescript.org/
 [comm]: http://visionmedia.github.com/commander.js/
 [conn]: http://senchalabs.org/connect/
-[houn]: https://github.com/beefsack/node-hound/
 [hser]: https://github.com/nodeapps/http-server/
 [jade]: http://jade-lang.com/
 [ncan]: https://github.com/LearnBoost/node-canvas/
@@ -171,3 +178,4 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [serv]: https://github.com/visionmedia/serve/
 [sock]: http://socket.io/
 [styl]: http://learnboost.github.com/stylus/
+[wchr]: https://github.com/bevry/watchr/

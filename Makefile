@@ -10,7 +10,7 @@ distclean:
 	$(RM) -r node_modules
 
 test: all
-	./node_modules/.bin/supervisor -- bin/workit test
+	./node_modules/.bin/forever bin/workit test
 
 watch: node_modules
 	./node_modules/.bin/coffee -o lib -cw src

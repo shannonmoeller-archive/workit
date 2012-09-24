@@ -24,3 +24,5 @@ module.exports = ({address, dir, format, port}) ->
     .use(connect.directory dir)
 
   console.log 'Serving %s at http://%s:%s/', dir, address, port
+
+process.on 'uncaughtException', console.log
