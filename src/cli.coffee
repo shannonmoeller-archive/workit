@@ -3,7 +3,7 @@ commander = require 'commander'
 path = require 'path'
 
 # Arguments
-commander.version('0.2.1')
+commander.version('0.2.2')
   .usage('[options] [dir]')
   .option('-a, --address <string>', 'set hostname [localhost]')
   .option('-f, --format <string>', 'connect logger format [dev]', 'dev')

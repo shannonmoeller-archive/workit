@@ -7,6 +7,7 @@ The stupid development server.
 - Serves [CoffeeScript][coff], [Jade][jade], and [Stylus][styl] like a champ.
 - Compiled output sent directly to browser for a pristine working directory.
 - No preprocessor caching so you're guaranteed to load the freshest code.
+- CORS enabled.
 
 Built with [Node.js][node] using [Connect][conn], [Socket.io][sock],
 [Commander.js][comm], and [watchr][wchr]. Inspired by visionmedia's [serve][serv]
@@ -68,7 +69,7 @@ File extensions are taken literally. If you request `.jade`, you'll get Jade:
 
 ```
 
-    $ curl http://localhost:3000/foo.jade
+    $ curl 'http://localhost:3000/foo.jade'
     !!! 5
     title Hello world
     link(rel='stylesheet', href='foo.css')
@@ -82,7 +83,7 @@ instead:
 
 ```
 
-    $ curl http://localhost:3000/foo.html
+    $ curl 'http://localhost:3000/foo.html'
     <!DOCTYPE html>
     <title>Hello world</title>
     <link rel="stylesheet" href="foo.css">
@@ -112,8 +113,23 @@ The filename is magic, so the path doesn't matter:
 
 ```
 
-	// Also works!
-	script(src='../my/public/assets/dir/connect-reload.js')
+    // Also works!
+    script(src='../my/public/assets/dir/connect-reload.js')
+
+```
+
+### CORS (cross-origin resource sharing)
+
+All requests are forcibly served with the `Access-Control-Allow-Origin: \*`
+header to [enable CORS][cors].
+
+Third-party resources that aren't CORS friendly can be requested via the
+built-in, and quite naive, proxy:
+
+```
+
+    $ curl 'http://localhost:3000/connect-cors/http://www.google.com/search?q=nodejs'
+    <!doctype html><html itemscope="itemscope" itemtype="http://schema.org/WebPage" ...
 
 ```
 
@@ -123,11 +139,11 @@ The filename is magic, so the path doesn't matter:
 
 ```
 
-	@import 'nib'
+    @import 'nib'
 
-	*
-		// Nib will add vendor prefixed variants
-		box-sizing: border-box
+    *
+        // Nib will add vendor prefixed variants
+        box-sizing: border-box
 
 ```
 
@@ -138,6 +154,9 @@ but you may install [node-canvas][ncan] to get IE-friendly inlined gradients.
 
 Change Log
 ----------
+
+### 0.2.2
+- Added CORS header and proxy.
 
 ### 0.2.1
 
@@ -174,6 +193,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [coff]: http://coffeescript.org/
 [comm]: http://visionmedia.github.com/commander.js/
 [conn]: http://senchalabs.org/connect/
+[cors]: http://enable-cors.org/
 [hser]: https://github.com/nodeapps/http-server/
 [jade]: http://jade-lang.com/
 [ncan]: https://github.com/LearnBoost/node-canvas/

@@ -56,7 +56,7 @@ module.exports = ({address, dir, port, server}) ->
 
   # Return middleware
   ({url}, res, next) ->
-    # Handle reloads
+    # Guard reload requests
     return next() unless url.slice(-17) is 'connect-reload.js'
 
     # RAM for the win
