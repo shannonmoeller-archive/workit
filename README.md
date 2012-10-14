@@ -156,9 +156,12 @@ gradients.
 Change Log
 ----------
 
+### 0.2.4
+- Upgraded from `flow` to `step`.
+
 ### 0.2.3
 - Replaced all `fs.*Sync` with their async counterparts.
-- Nuked some superfluous variable assignments
+- Nuked some superfluous variable assignments.
 
 ### 0.2.2
 - Added CORS header and proxy.
