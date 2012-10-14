@@ -6,7 +6,7 @@ all: node_modules
 clean:
 	$(RM) -r lib
 
-distclean:
+distclean: clean
 	$(RM) -r node_modules
 
 test: all

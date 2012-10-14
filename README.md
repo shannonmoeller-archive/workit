@@ -120,7 +120,7 @@ The filename is magic, so the path doesn't matter:
 
 ### CORS (cross-origin resource sharing)
 
-All requests are forcibly served with the `Access-Control-Allow-Origin: \*`
+All requests are forcibly served with the `Access-Control-Allow-Origin: *`
 header to [enable CORS][cors].
 
 Third-party resources that aren't CORS friendly can be requested via the
@@ -149,11 +149,16 @@ built-in, and quite naive, proxy:
 
 ### Data URI Image Inlining
 
-Inlining of images via `url()` is not enabled (this is a dev server after all),
-but you may install [node-canvas][ncan] to get IE-friendly inlined gradients.
+Inlining of images via Stylus' `url()` is not enabled (this is a dev server
+after all), but you may install [node-canvas][ncan] to get IE-friendly inlined
+gradients.
 
 Change Log
 ----------
+
+### 0.2.3
+- Replaced all `fs.*Sync` with their async counterparts.
+- Nuked some superfluous variable assignments
 
 ### 0.2.2
 - Added CORS header and proxy.

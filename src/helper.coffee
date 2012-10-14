@@ -1,5 +1,6 @@
 # Modules
 connect = require 'connect'
+flow = require 'flow'
 fs = require 'fs'
 path = require 'path'
 
@@ -20,16 +21,30 @@ module.exports = (dir, match, extension, compile) ->
     # Normalize path
     filename = path.join dir, url.replace(match, extension)
 
-    # Check file exists
-    return next() unless fs.existsSync filename
-
     # Compile or die trying
-    try
-      ins = fs.readFileSync filename, 'utf8'
-      compile filename, ins, (err, out) ->
-        throw err if err
-        mime = connect.static.mime.lookup url
-        res.setHeader 'Content-Type', mime
-        res.end out
-    catch err
-      next err
+    flow.exec(
+      # Check file exists
+      -> fs.exists filename, this
+
+      # Get real path
+      (exists) ->
+        return next() unless exists
+        fs.realpath filename, this
+
+      # Read real file
+      (err, real) ->
+        return next err if err
+        filename = real
+        fs.readFile filename, 'utf8', this
+
+      # Compile template
+      (err, data) ->
+        return next err if err
+        compile filename, data, this
+
+      # Send response to browser
+      (err, data) ->
+        return next err if err
+        res.setHeader 'Content-Type', connect.static.mime.lookup url
+        res.end data
+    )
