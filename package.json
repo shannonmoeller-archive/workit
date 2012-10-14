@@ -1,6 +1,6 @@
 {
 	"name": "workit",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change. CORS enabled.",
 	"keywords": ["assets", "compile", "cors", "live", "preprocess", "proxy", "reload", "serve", "static", "watch"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
@@ -18,11 +18,11 @@
 		"coffee-script": "*",
 		"commander": "*",
 		"connect": "*",
-		"flow": "*",
 		"jade": "*",
 		"nib": "*",
 		"snockets": "*",
 		"socket.io": "*",
+		"step": "*",
 		"stylus": "*",
 		"watchr": "*"
 	},

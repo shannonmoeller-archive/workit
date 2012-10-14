@@ -1,28 +1,27 @@
 # Modules
 connect = require 'connect'
-flow = require 'flow'
 fs = require 'fs'
 path = require 'path'
+step = require 'step'
 
 # Export middleware generator
-module.exports = (dir, match, extension, compile) ->
+module.exports = (dir, match, ext, compile) ->
   # Return middleware
   ({url}, res, next) ->
     # Allow for index.html
     url += 'index.html' if url.slice(-1) is '/'
 
     # Serve source files as plain text
-    if url.slice(-extension.length) is extension
-      res.setHeader 'Content-Type', 'text/plain'
+    res.setHeader 'Content-Type', 'text/plain' if url.slice(-ext.length) is ext
 
     # Check for valid extension
     return next() unless match.test url
 
     # Normalize path
-    filename = path.join dir, url.replace(match, extension)
+    filename = path.join dir, url.replace(match, ext)
 
     # Compile or die trying
-    flow.exec(
+    step(
       # Check file exists
       -> fs.exists filename, this
 
@@ -37,7 +36,7 @@ module.exports = (dir, match, extension, compile) ->
         filename = real
         fs.readFile filename, 'utf8', this
 
-      # Compile template
+      # Compile data
       (err, data) ->
         return next err if err
         compile filename, data, this
@@ -45,6 +44,6 @@ module.exports = (dir, match, extension, compile) ->
       # Send response to browser
       (err, data) ->
         return next err if err
-        res.setHeader 'Content-Type', connect.static.mime.lookup url
+        res.setHeader 'Content-Type', connect.static.mime.lookup(url)
         res.end data
     )
