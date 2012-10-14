@@ -5,17 +5,14 @@ url = require 'url'
 
 # Export middleware
 module.exports = (req, res, next) ->
-  left = req.url.slice 0, 14
-  right = req.url.slice 14
-
   # Enable CORS for all requests
   res.setHeader 'Access-Control-Allow-Origin', '*'
 
   # Guard proxy requests
-  return next() unless left is '/connect-cors/'
+  return next() unless req.url.slice(0, 14) is '/connect-cors/'
 
   # Parse url
-  opts = url.parse right
+  opts = url.parse req.url.slice(14)
 
   # Spoof request headers
   opts.headers = req.headers
