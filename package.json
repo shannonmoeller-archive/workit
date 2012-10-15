@@ -4,7 +4,8 @@
 	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change. CORS enabled.",
 	"keywords": ["assets", "compile", "cors", "live", "preprocess", "proxy", "reload", "serve", "static", "watch"],
 	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
-	"main": "lib/workit.js",
+	"contributors": ["Patrik Votoček <patrik@votocek.cz> (http://patrik.votocek.cz)"],
+	"main": "src/cli.coffee",
 	"bin": "./bin/workit",
 	"repository": {
 		"type": "git",

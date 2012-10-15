@@ -38,4 +38,4 @@ commander.parse process.argv
 commander.dir = path.resolve commander.args.shift()
 
 # Workit
-require('../lib/workit') commander
+require('./workit') commander
