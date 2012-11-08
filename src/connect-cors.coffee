@@ -7,6 +7,7 @@ url = require 'url'
 module.exports = (req, res, next) ->
   # Enable CORS for all requests
   res.setHeader 'Access-Control-Allow-Origin', '*'
+  res.setHeader 'Access-Control-Allow-Headers', 'X-Requested-With'
 
   # Guard proxy requests
   return next() unless req.url.slice(0, 14) is '/connect-cors/'

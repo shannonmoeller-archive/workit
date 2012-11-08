@@ -1,11 +1,13 @@
 # Modules
+chokidar = require 'chokidar'
 path = require 'path'
 socketio = require 'socket.io'
 util = require 'util'
-watchr = require 'watchr'
 
 # Prozac
-debounce = (fn, timeout) ->
+debounce = (fn) ->
+  timeout = null
+
   return ->
     clearTimeout timeout
     timeout = setTimeout fn, 50
@@ -30,29 +32,47 @@ client = ->
   target = document.getElementsByTagName('script')[0]
   target.parentNode.insertBefore script, target.nextSibling
 
-# Export middleware
+# Export generator
 module.exports = ({address, dir, port, server}) ->
-  # Prep client-side script
-  client = util.format "(#{client}());", address, port
+  connections = 0
+  timeout = null
+  watcher = null
 
-  # Start watching files and open socket
+  # Prep client-side script
+  script = util.format "(#{client}());", address, port
+
+  # Open socket
   io = socketio.listen server, 'log level': 0
 
-  # Reasonable emitter
-  emit = debounce ->
+  # Reload handler
+  reload = debounce ->
     io.sockets.emit 'connect-reload'
 
-  # Reload emitter
-  reload = (file) ->
-    # Ignore hidden files
-    emit() if path.basename(file).indexOf '.'
+  # Watch files
+  watch = ->
+    watcher = chokidar
+      .watch(dir, ignored: /\/\.|node_modules/, persistent: true)
+      .on('change', reload)
+      .on('unlink', reload)
 
-  # Bind emitter to file changes
-  watchr.watch
-    ignoreHiddenFiles: true
-    ignorePatterns: true
-    listener: reload
-    path: dir
+  # Unwatch files
+  unwatch = ->
+    watcher?.close()
+    watcher = null
+
+  # Manage connections
+  io.sockets.on 'connection', (s) ->
+    # Start watching
+    connections += 1
+    timeout = clearTimeout timeout
+
+    # Create watcher if needed
+    watch() unless watcher
+
+    s.on 'disconnect', ->
+      # Stop watching
+      connections -= 1
+      timeout = setTimeout unwatch, 100 unless connections
 
   # Return middleware
   ({url}, res, next) ->
@@ -61,4 +81,4 @@ module.exports = ({address, dir, port, server}) ->
 
     # RAM for the win
     res.setHeader 'Content-Type', 'text/javascript'
-    res.end client
+    res.end script

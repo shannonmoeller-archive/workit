@@ -10,7 +10,7 @@ The stupid development server.
 - CORS enabled.
 
 Built with [Node.js][node] using [Connect][conn], [Socket.io][sock],
-[Commander.js][comm], and [watchr][wchr]. Inspired by visionmedia's [serve][serv]
+[Commander.js][comm], and [Chokidar][chok]. Inspired by visionmedia's [serve][serv]
 and nodejitsu's [http-server][hser].
 
 Installation
@@ -156,6 +156,11 @@ gradients.
 Change Log
 ----------
 
+### 0.3.0
+- Now using `chokidar` instead of `watchr`. Vastly improves performance and
+  cross-platform reliability of file watching, especially when the server should
+  be idle. Fixes #6.
+
 ### 0.2.4
 - Upgraded from `flow` to `step`.
 
@@ -168,7 +173,8 @@ Change Log
 
 ### 0.2.1
 
-- Now using `watchr` instead of `hound`. Common system and hidden files are now ignored. Fixes #5.
+- Now using `watchr` instead of `hound`. Common system and hidden files are now
+  ignored. Fixes #5.
 - Now using `forever` instead of `supervisor` in `make test`.
 
 License
@@ -197,6 +203,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+[chok]: https://github.com/paulmillr/chokidar/
 [coas]: https://github.com/TrevorBurnham/connect-assets/
 [coff]: http://coffeescript.org/
 [comm]: http://visionmedia.github.com/commander.js/
@@ -210,4 +217,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [serv]: https://github.com/visionmedia/serve/
 [sock]: http://socket.io/
 [styl]: http://learnboost.github.com/stylus/
-[wchr]: https://github.com/bevry/watchr/
