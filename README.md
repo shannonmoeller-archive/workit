@@ -147,9 +147,9 @@ built-in, and quite naive, proxy:
 
 ```
 
-### Data URI Image Inlining
+### Data URI Inlining
 
-Inlining of images via Stylus' `url()` is not enabled (this is a dev server
+Inlining of assets via Stylus' `url()` is not enabled (this is a dev server
 after all), but you may install [node-canvas][ncan] to get IE-friendly inlined
 gradients.
 
