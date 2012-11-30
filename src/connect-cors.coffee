@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 http = require 'http'
 https = require 'https'

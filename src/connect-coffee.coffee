@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 helper = require './helper'
 Snockets = require 'snockets'

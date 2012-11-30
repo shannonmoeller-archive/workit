@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 chokidar = require 'chokidar'
 path = require 'path'

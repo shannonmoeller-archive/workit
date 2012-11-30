@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 helper = require './helper'
 jade = require 'jade'

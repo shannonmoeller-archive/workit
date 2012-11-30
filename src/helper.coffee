@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 connect = require 'connect'
 fs = require 'fs'

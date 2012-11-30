@@ -1,3 +1,5 @@
+'use strict'
+
 # Modules
 commander = require 'commander'
 path = require 'path'
