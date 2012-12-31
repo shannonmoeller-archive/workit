@@ -5,11 +5,11 @@ connect = require 'connect'
 path = require 'path'
 
 # Middleware
-coffee = require './connect-coffee'
-cors = require './connect-cors'
-jade = require './connect-jade'
-reload = require './connect-reload'
-stylus = require './connect-stylus'
+coffee = require './workit-coffee'
+cors = require './workit-cors'
+jade = require './workit-jade'
+reload = require './workit-reload'
+stylus = require './workit-stylus'
 
 # Export helpfulness
 module.exports = ({address, dir, format, port}) ->

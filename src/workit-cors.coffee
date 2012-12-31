@@ -12,7 +12,7 @@ module.exports = (req, res, next) ->
   res.setHeader 'Access-Control-Allow-Headers', 'X-Requested-With'
 
   # Guard proxy requests
-  return next() unless req.url.slice(0, 14) is '/connect-cors/'
+  return next() unless req.url.slice(0, 14) is '/workit-cors/'
 
   # Parse url
   opts = url.parse req.url.slice(14)

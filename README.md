@@ -73,7 +73,7 @@ File extensions are taken literally. If you request `.jade`, you'll get Jade:
     !!! 5
     title Hello world
     link(rel='stylesheet', href='foo.css')
-    script(src='connect-reload.js')
+    script(src='workit-reload.js')
     script(src='foo.js')
 
 ```
@@ -87,7 +87,7 @@ instead:
     <!DOCTYPE html>
     <title>Hello world</title>
     <link rel="stylesheet" href="foo.css">
-    <script src="connect-reload.js"></script>
+    <script src="workit-reload.js"></script>
     <script src="foo.js"></script>
 
 ```
@@ -97,15 +97,15 @@ Same goes for `.coffee` vs `.js` and `.styl` vs `.css`.
 ### Auto-reload
 
 To enable automatic reloading of a page when a file in your project is created
-or changed, simply include the virtual `connect-reload.js` in your markup:
+or changed, simply include the virtual `workit-reload.js` in your markup:
 
 ```
 
     <!-- HTML -->
-    <script src="connect-reload.js"></script>
+    <script src="workit-reload.js"></script>
 
     // Jade
-    script(src='connect-reload.js')
+    script(src='workit-reload.js')
 
 ```
 
@@ -114,7 +114,7 @@ The filename is magic, so the path doesn't matter:
 ```
 
     // Also works!
-    script(src='../my/public/assets/dir/connect-reload.js')
+    script(src='../my/public/assets/dir/workit-reload.js')
 
 ```
 
@@ -128,7 +128,7 @@ built-in, and quite naive, proxy:
 
 ```
 
-    $ curl 'http://localhost:3000/connect-cors/http://www.google.com/search?q=nodejs'
+    $ curl 'http://localhost:3000/workit-cors/http://www.google.com/search?q=nodejs'
     <!doctype html><html itemscope="itemscope" itemtype="http://schema.org/WebPage" ...
 
 ```
@@ -155,6 +155,10 @@ gradients.
 
 Change Log
 ----------
+
+### 1.0.0
+- Changed middleware prefixes from `connect-` to `workit-` so as not to be
+  confused with middleware of the same name by different authors.
 
 ### 0.3.0
 - Now using `chokidar` instead of `watchr`. Vastly improves performance and

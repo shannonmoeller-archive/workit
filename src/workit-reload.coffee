@@ -21,7 +21,7 @@ client = ->
 
   # Reload handler
   reload = ->
-    io.connect(server).on 'connect-reload', ->
+    io.connect(server).on 'workit-reload', ->
       document.location.reload true
 
   # Are we done yet?
@@ -48,7 +48,7 @@ module.exports = ({address, dir, port, server}) ->
 
   # Reload handler
   reload = debounce ->
-    io.sockets.emit 'connect-reload'
+    io.sockets.emit 'workit-reload'
 
   # Watch files
   watch = ->
@@ -79,7 +79,7 @@ module.exports = ({address, dir, port, server}) ->
   # Return middleware
   ({url}, res, next) ->
     # Guard reload requests
-    return next() unless url.slice(-17) is 'connect-reload.js'
+    return next() unless url.slice(-16) is 'workit-reload.js'
 
     # RAM for the win
     res.setHeader 'Content-Type', 'text/javascript'
