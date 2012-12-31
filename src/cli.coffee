@@ -5,7 +5,7 @@ commander = require 'commander'
 path = require 'path'
 
 # Arguments
-commander.version('1.0.0')
+commander.version('1.0.1')
   .usage('[options] [dir]')
   .option('-a, --address <string>', 'set hostname [localhost]')
   .option('-f, --format <string>', 'connect logger format [dev]', 'dev')

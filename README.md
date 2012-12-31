@@ -156,6 +156,9 @@ gradients.
 Change Log
 ----------
 
+### 1.0.1
+- Fixed string length bug in workit-cors.
+
 ### 1.0.0
 - Changed middleware prefixes from `connect-` to `workit-` so as not to be
   confused with middleware of the same name by different authors.
