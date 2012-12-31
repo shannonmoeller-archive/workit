@@ -156,6 +156,10 @@ gradients.
 Change Log
 ----------
 
+### 1.0.2
+- Corrected host value in piped request headers.
+- Fixed another string length bug in workit-cors.
+
 ### 1.0.1
 - Fixed string length bug in workit-cors.
 

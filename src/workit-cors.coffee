@@ -15,17 +15,18 @@ module.exports = (req, res, next) ->
   return next() unless req.url.slice(0, 13) is '/workit-cors/'
 
   # Parse url
-  opts = url.parse req.url.slice(14)
+  opts = url.parse req.url.slice(13)
 
-  # Spoof request headers
+  # Pipe request headers
   opts.headers = req.headers
+  opts.headers.host = opts.host
 
   # Select correct module
   mod = if opts.protocol is 'https:' then https else http
 
   # Proxy request
   mod.get opts, (res2) ->
-    # Spoof response headers
+    # Pipe response headers
     for k in Object.keys res2.headers
       res.setHeader k, res2.headers[k]
 
