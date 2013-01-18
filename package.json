@@ -1,33 +1,34 @@
 {
-	"name": "workit",
-	"version": "1.0.2",
-	"description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change. CORS enabled.",
-	"keywords": ["assets", "compile", "cors", "live", "preprocess", "proxy", "reload", "serve", "static", "watch"],
-	"author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
-	"contributors": ["Patrik Votoček <patrik@votocek.cz> (http://patrik.votocek.cz)"],
-	"main": "src/workit.coffee",
-	"bin": "./bin/workit",
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/shannonmoeller/workit.git"
-	},
-	"scripts": {
-		"test": "make test",
-		"watch": "make watch"
-	},
-	"dependencies": {
-		"chokidar": "*",
-		"coffee-script": "*",
-		"commander": "*",
-		"connect": "*",
-		"jade": "*",
-		"nib": "*",
-		"snockets": "*",
-		"socket.io": "*",
-		"step": "*",
-		"stylus": "*"
-	},
-	"devDependencies": {
-		"forever": "*"
-	}
+  "name": "workit",
+  "version": "1.0.2",
+  "description": "The stupid development server. Serves CoffeeScript, Jade, and Stylus like a champ. Reloads browser on source-file change. CORS enabled.",
+  "keywords": ["assets", "compile", "cors", "live", "preprocess", "proxy", "reload", "serve", "static", "watch"],
+  "author": "Shannon Moeller <me@shannonmoeller.com> (http://shannonmoeller.com)",
+  "contributors": ["Patrik Votoček <patrik@votocek.cz> (http://patrik.votocek.cz)"],
+  "main": "src/workit.coffee",
+  "bin": "./bin/workit",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/shannonmoeller/workit.git"
+  },
+  "scripts": {
+    "test": "make test",
+    "watch": "make watch"
+  },
+  "dependencies": {
+    "chokidar": "*",
+    "coffee-script": "*",
+    "commander": "*",
+    "connect": "*",
+    "jade": "*",
+    "multimarkdown": "*",
+    "nib": "*",
+    "snockets": "*",
+    "socket.io": "*",
+    "step": "*",
+    "stylus": "*"
+  },
+  "devDependencies": {
+    "forever": "*"
+  }
 }

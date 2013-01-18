@@ -8,6 +8,7 @@ path = require 'path'
 coffee = require './workit-coffee'
 cors = require './workit-cors'
 jade = require './workit-jade'
+markdown = require './workit-markdown'
 reload = require './workit-reload'
 stylus = require './workit-stylus'
 
@@ -27,6 +28,7 @@ module.exports = ({address, dir, format, port}) ->
     .use(reload {address, dir, port, server})
     .use(coffee dir)
     .use(jade dir)
+    .use(markdown dir)
     .use(stylus dir)
     .use(connect.static dir)
     .use(connect.directory dir)
