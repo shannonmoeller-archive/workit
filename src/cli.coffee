@@ -3,9 +3,10 @@
 # Modules
 commander = require 'commander'
 path = require 'path'
+pkg = require '../package.json'
 
 # Arguments
-commander.version('1.0.3')
+commander.version(pkg.version)
   .usage('[options] [dir]')
   .option('-a, --address <string>', 'set hostname [localhost]')
   .option('-f, --format <string>', 'connect logger format [dev]', 'dev')
