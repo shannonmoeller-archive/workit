@@ -3,12 +3,12 @@
 # Modules
 fs = require 'fs'
 helper = require './helper'
-markdown = require 'multimarkdown'
+markdown = require 'marked'
 
 # Compiler
 compile = (filename, data, cb) ->
   fs.readFile filename, 'utf8', (err, data) ->
-    cb(err, markdown.convert(data))
+    cb(err, markdown(data))
 
 # Export middleware
 module.exports = (dir) ->
