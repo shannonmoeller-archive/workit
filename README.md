@@ -1,3 +1,5 @@
+*DEPRECATION NOTICE*: This project is no longer maintained.
+
 workit
 ======
 
