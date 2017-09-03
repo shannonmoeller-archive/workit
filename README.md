@@ -20,7 +20,7 @@ Installation
 
 Via [npm](http://npmjs.org/):
 
-    $ npm install -g workit
+    $ npm install -g shannonmoeller/workit
 
 Usage
 -----
