@@ -1,4 +1,4 @@
-*DEPRECATION NOTICE*: This project is no longer maintained.
+*DEPRECATION NOTICE*: This project is no longer maintained and the package name has been transferred to [MiguelCastillo/workit](https://github.com/MiguelCastillo/workit).
 
 workit
 ======
