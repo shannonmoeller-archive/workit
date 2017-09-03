@@ -1,4 +1,4 @@
-*DEPRECATION NOTICE*: This project is no longer maintained and the package name has been transferred to [MiguelCastillo/workit](https://github.com/MiguelCastillo/workit). For a generic static server see [serve](http://npm.im/serve) and [http-server](http://npm.im/http-server)
+*DEPRECATION NOTICE*: This project is no longer maintained and the package name has been transferred to [MiguelCastillo/workit](https://github.com/MiguelCastillo/workit). For a generic static server see [serve](http://npm.im/serve) and [http-server](http://npm.im/http-server).
 
 workit
 ======
